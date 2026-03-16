@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sceneflow"
+version = "0.1.0"
+description = ""
+dynamic = ["dependencies"]
+
+[project.optional-dependencies]
+hunyuan_mirror = [
+    "moviepy==1.0.3",
+    "omegaconf==2.3.0",
+    "pydantic==2.11.10",
+    # "opencv-python==4.7.0.72",
+    "scipy==1.10.1",
+    "requests==2.31.0",
+    "trimesh==4.10.1",
+    "matplotlib==3.7.2",
+    "pillow_heif==0.22.0",
+    "onnxruntime==1.23.2",
+    "colorspacious==1.1.2",
+    # "safetensors==0.6.2",
+    "plyfile==1.1.3",
+    "numpy==1.24.4",
+    "open3d==0.18.0",
+    "torchmetrics==1.3.2",
+    "pre-commit==3.6.2",
+    "rich==13.3.5",
+    "pytest==6.2.5",
+    "roma==1.5.4",
+    # "einops==0.8.0",
+    # "tqdm==4.64.1",
+    "viser==0.2.11",
+    "huggingface-hub[torch]>=0.22",
+    "ninja==1.11.1",
+    "jaxtyping==0.3.4",
+    "lpips==0.1.4",
+    "pycolmap==3.10.0",
+    "tyro==1.0.3",
+]
+
+transformers_low = [
+    "transformers>=4.39.3,<=4.45.1",
+    "tokenizers>=0.15.2,<0.20.0",
+    "peft>=0.13.2,<0.14.0",
+]
+
+transformers_high = [
+    "transformers>=4.49.0,<=4.57.3",
+    "tokenizers>=0.20.3",
+    "peft>=0.17.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = { find = { where = ["src"] } }
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
